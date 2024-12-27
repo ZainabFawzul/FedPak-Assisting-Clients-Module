@@ -7,6 +7,17 @@ var setVar = player.SetVar;
 var getVar = player.GetVar;
 window.Script20 = function()
 {
+  function stopTimer() {
+    if (typeof window.timerInterval !== 'undefined') {
+        clearInterval(window.timerInterval);
+        delete window.timerInterval;
+    }
+}
+stopTimer();
+}
+
+window.Script21 = function()
+{
   let currentTime = new Date();
 let month = currentTime.getMonth() + 1;
 let day = currentTime.getDate();
@@ -20,7 +31,7 @@ let player = GetPlayer();
 player.SetVar("TodayDate", dateString);
 }
 
-window.Script21 = function()
+window.Script22 = function()
 {
   // Calculate current date
 let currentTime = new Date();
@@ -39,17 +50,6 @@ let dateString = month + "/" + day + "/" + year;
 // Push the date string to Storyline
 let player = GetPlayer();
 player.SetVar("FutureDate", dateString);
-}
-
-window.Script22 = function()
-{
-  function stopTimer() {
-    if (typeof window.timerInterval !== 'undefined') {
-        clearInterval(window.timerInterval);
-        delete window.timerInterval;
-    }
-}
-stopTimer();
 }
 
 window.Script23 = function()
